@@ -40,4 +40,4 @@ if [ $# -gt 3 ]; then
 fi
 
 # Print the result
-echo "Result: $result"
+echo "Resulting: $result"
