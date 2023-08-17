@@ -6,7 +6,7 @@ terraform {
   backend "azurerm"{
     resource_group_name = "cloud-demo"
     storage_account_name = "evitest"
-    container_name = "tftest"
+    container_name = "tftest1"
     key = "terraformtest1.tfstate"
  }
 }
