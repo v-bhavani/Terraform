@@ -108,19 +108,19 @@ variable "secondary_subnet_name" {
 }
 variable "primary_vnet_address_space" {
   description = "name of resource"
-  type        = string
+  type        = list(string)
 }
 variable "secondary_vnet_address_space" {
   description = "name of resource"
-  type        = string
+  type        = list(string)
 }
 variable "primary_subnet_address_space" {
   description = "name of resource"
-  type        = string
+  type        = list(string)
 }
 variable "secondary_subnet_address_space" {
   description = "name of resource"
-  type        = string
+  type        = list(string)
 }
 variable "primary_public_ip_name" {
   description = "name of resource"
