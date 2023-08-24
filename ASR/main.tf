@@ -36,12 +36,12 @@ resource "azurerm_virtual_machine" "vm" {
     id = var.source_image_id
   }
 
-  # storage_os_disk {
-  #   name              = "tf-vm_OsDisk"
-  #   caching           = "ReadWrite"
-  #   create_option    = "FromImage"
-  #   managed_disk_type = "Standard_LRS"
-  # }
+   storage_os_disk {
+     name              = "tf-vm_OsDisk"
+     caching           = "ReadWrite"
+     create_option    = "FromImage"
+     managed_disk_type = "Standard_LRS"
+   }
 
   os_profile {
     admin_username = var.vm_admin_username
