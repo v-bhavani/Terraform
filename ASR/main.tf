@@ -174,12 +174,12 @@ resource "azurerm_network_interface" "vm" {
   location            = azurerm_resource_group.primary.location
   resource_group_name = azurerm_resource_group.primary.name
 
-  # ip_configuration {
-  #   name                          = "tf-pvt-vm"
-  #   subnet_id                     = azurerm_subnet.primary.id
-  #   private_ip_address_allocation = "Dynamic"
-  #   public_ip_address_id          = azurerm_public_ip.primary.id
-  # }
+  ip_configuration {
+     name                          = "tf-pvt-vm"
+     subnet_id                     = azurerm_subnet.primary.id
+     private_ip_address_allocation = "Dynamic"
+     public_ip_address_id          = azurerm_public_ip.primary.id
+   }
 }
 
 resource "azurerm_site_recovery_replicated_vm" "vm-replication" {
