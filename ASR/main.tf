@@ -147,7 +147,7 @@ resource "azurerm_subnet" "primary" {
 }
 
 resource "azurerm_subnet" "secondary" {
-  name                 = "${var.secondary_subnet_address_space}"
+  name                 = "${var.secondary_subnet_name}"
   resource_group_name  = azurerm_resource_group.secondary.name
   virtual_network_name = azurerm_virtual_network.secondary.name
   address_prefixes     = "${var.secondary_subnet_address_space}"
