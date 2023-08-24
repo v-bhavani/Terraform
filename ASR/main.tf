@@ -10,46 +10,43 @@ terraform {
  }
 }
 resource "azurerm_resource_group" "primary" {
-  name     = "tfrg-p"
-  location = "East US"
+  name     = var.primary_resource_group_name
+  location = var.primary_location
 tags = {
-  "Resource Holder" = "Irfana"
+  "Resource Holder" = var.tagname
 }
 }
 
 resource "azurerm_resource_group" "secondary" {
-  name     = "tfrg-s"
-  location = "Central US"
+  name     = var.secondary_resource_group_name
+  location = var.secondary_location
 tags = {
-  "Resource Holder" = "Irfana"
+  "Resource Holder" = var.tagname
 }
 }
 
 resource "azurerm_virtual_machine" "vm" {
-  name                  = "tf-vm"
-  location              = azurerm_resource_group.primary.location
-  resource_group_name   = azurerm_resource_group.primary.name
-  vm_size               = "Standard_B1s"
+  name                  = var.vm_name
+  location              = var.primary_location
+  resource_group_name   = var.primary_resource_group_name
+  vm_size               = var.vm_size
   network_interface_ids = [azurerm_network_interface.vm.id]
 
   storage_image_reference {
-    publisher = "RedHat"
-    offer     = "RHEL"
-    version   = "8.0"
+    id = var.source_image_id
   }
 
-  storage_os_disk {
-    name              = "tf-vm_OsDisk_1_e33c7ca803d844ab8ab19322ff2ab8a1"
-    os_type           = "Linux"
-    caching           = "ReadWrite"
-    create_option     = "FromImage"
-    managed_disk_type = "Standard_LRS"
-  }
+  # storage_os_disk {
+  #   name              = "tf-vm_OsDisk"
+  #   caching           = "ReadWrite"
+  #   create_option    = "FromImage"
+  #   managed_disk_type = "Standard_LRS"
+  # }
 
   os_profile {
-    admin_username = "azureadmin"
-    admin_password = "H3r3andth3r3"
-    computer_name  = "tf-vm"
+    admin_username = var.vm_admin_username
+    admin_password = var.vm_admin_password
+    computer_name  = var.computer_name
   }
 
   os_profile_linux_config {
@@ -58,141 +55,141 @@ resource "azurerm_virtual_machine" "vm" {
 }
 
 resource "azurerm_recovery_services_vault" "vault" {
-  name                = "tfvault"
-  location            = azurerm_resource_group.secondary.location
-  resource_group_name = azurerm_resource_group.secondary.name
-  sku                 = "Standard"
+  name                = var.vault_name
+  location            = var.secondary_location
+  resource_group_name = var.secondary_resource_group_name
+  sku                 = var.vault_sku
 }
 
 resource "azurerm_site_recovery_fabric" "primary" {
-  name                = "primary-fabric"
-  resource_group_name = azurerm_resource_group.secondary.name
-  recovery_vault_name = azurerm_recovery_services_vault.vault.name
-  location            = azurerm_resource_group.primary.location
+  name                = var.primary_fabric_name
+  resource_group_name = var.secondary_resource_group_name
+  recovery_vault_name = var.vault_name
+  location            = var.primary_location
 }
 
 resource "azurerm_site_recovery_fabric" "secondary" {
-  name                = "secondary-fabric"
-  resource_group_name = azurerm_resource_group.secondary.name
-  recovery_vault_name = azurerm_recovery_services_vault.vault.name
-  location            = azurerm_resource_group.secondary.location
+  name                = var.secondary_fabric_name
+  resource_group_name = var.secondary_resource_group_name
+  recovery_vault_name = var.vault_name
+  location            = var.secondary_location
 }
 
 resource "azurerm_site_recovery_protection_container" "primary" {
-  name                 = "primary-protection-container"
-  resource_group_name  = azurerm_resource_group.secondary.name
-  recovery_vault_name  = azurerm_recovery_services_vault.vault.name
-  recovery_fabric_name = azurerm_site_recovery_fabric.primary.name
+  name                 = var.primary_container_name
+  resource_group_name  = var.secondary_resource_group_name
+  recovery_vault_name  = var.vault_name
+  recovery_fabric_name = var.primary_fabric_name
 }
 
 resource "azurerm_site_recovery_protection_container" "secondary" {
-  name                 = "secondary-protection-container"
-  resource_group_name  = azurerm_resource_group.secondary.name
-  recovery_vault_name  = azurerm_recovery_services_vault.vault.name
-  recovery_fabric_name = azurerm_site_recovery_fabric.secondary.name
+  name                 = var.secondary_container_name
+  resource_group_name  = var.secondary_resource_group_name
+  recovery_vault_name  = var.vault_name
+  recovery_fabric_name = var.secondary_fabric_name
 }
 
 resource "azurerm_site_recovery_replication_policy" "policy" {
-  name                                                 = "policy"
-  resource_group_name                                  = azurerm_resource_group.secondary.name
-  recovery_vault_name                                  = azurerm_recovery_services_vault.vault.name
+  name                                                 = var.policy_name
+  resource_group_name                                  = var.secondary_resource_group_name
+  recovery_vault_name                                  = var.vault_name
   recovery_point_retention_in_minutes                  = 1 * 60
   application_consistent_snapshot_frequency_in_minutes = 1 * 60
 }
 
 resource "azurerm_site_recovery_protection_container_mapping" "container-mapping" {
-  name                                      = "container-mapping"
-  resource_group_name                       = azurerm_resource_group.secondary.name
-  recovery_vault_name                       = azurerm_recovery_services_vault.vault.name
-  recovery_fabric_name                      = azurerm_site_recovery_fabric.primary.name
-  recovery_source_protection_container_name = azurerm_site_recovery_protection_container.primary.name
-  recovery_target_protection_container_id   = azurerm_site_recovery_protection_container.secondary.id
+  name                                      = var.container-mapping_name
+  resource_group_name                       = var.secondary_resource_group_name
+  recovery_vault_name                       = var.vault_name
+  recovery_fabric_name                      = var.primary_fabric_name
+  recovery_source_protection_container_name = var.primary_container_name
+  recovery_target_protection_container_id   = var.secondary_container_name
   recovery_replication_policy_id            = azurerm_site_recovery_replication_policy.policy.id
 }
 
 resource "azurerm_site_recovery_network_mapping" "network-mapping" {
-  name                        = "network-mapping"
-  resource_group_name         = azurerm_resource_group.secondary.name
-  recovery_vault_name         = azurerm_recovery_services_vault.vault.name
-  source_recovery_fabric_name = azurerm_site_recovery_fabric.primary.name
-  target_recovery_fabric_name = azurerm_site_recovery_fabric.secondary.name
+  name                        = var.network-mapping_name
+  resource_group_name         = var.secondary_resource_group_name
+  recovery_vault_name         = var.vault_name
+  source_recovery_fabric_name = var.primary_fabric_name
+  target_recovery_fabric_name = var.secondary_fabric_name
   source_network_id           = azurerm_virtual_network.primary.id
   target_network_id           = azurerm_virtual_network.secondary.id
 }
 
 resource "azurerm_storage_account" "primary" {
-  name                     = "tfrgstorageaccount"
-  location                 = azurerm_resource_group.primary.location
-  resource_group_name      = azurerm_resource_group.primary.name
-  account_tier             = "Standard"
-  account_replication_type = "LRS"
+  name                     = var.primary_sa_name
+  location                 = var.primary_location
+  resource_group_name      = var.primary_resource_group_name
+  account_tier             = var.storage_account_tier
+  account_replication_type = var.sa_replication_type
 }
 
 resource "azurerm_virtual_network" "primary" {
-  name                = "tf-vm-vnet"
-  resource_group_name = azurerm_resource_group.primary.name
-  address_space       = ["10.9.0.0/16"]
-  location            = azurerm_resource_group.primary.location
+  name                = var.primary_vnet_name
+  resource_group_name = var.primary_resource_group_name
+  address_space       = var.primary_vnet_address_space
+  location            = var.primary_location
 }
 
 resource "azurerm_virtual_network" "secondary" {
-  name                = "tf-vm-vnet-s"
-  resource_group_name = azurerm_resource_group.secondary.name
-  address_space       = ["10.15.0.0/16"]
-  location            = azurerm_resource_group.secondary.location
+  name                = var.secondary_vnet_name
+  resource_group_name = var.secondary_resource_group_name
+  address_space       = var.secondary_vnet_address_space
+  location            = var.secondary_location
 }
 
 resource "azurerm_subnet" "primary" {
-  name                 = "default"
-  resource_group_name  = azurerm_resource_group.primary.name
-  virtual_network_name = azurerm_virtual_network.primary.name
-  address_prefixes     = ["10.9.0.0/24"]
+  name                 = var.primary_subnet_name
+  resource_group_name  = var.primary_resource_group_name
+  virtual_network_name = var.primary_vnet_name
+  address_prefixes     = var.primary_subnet_address_space
 }
 
 resource "azurerm_subnet" "secondary" {
-  name                 = "default"
-  resource_group_name  = azurerm_resource_group.secondary.name
-  virtual_network_name = azurerm_virtual_network.secondary.name
-  address_prefixes     = ["10.15.0.0/24"]
+  name                 = var.secondary_subnet_address_space
+  resource_group_name  = var.secondary_resource_group_name
+  virtual_network_name = var.secondary_vnet_name
+  address_prefixes     = var.secondary_subnet_address_space
 }
 
 resource "azurerm_public_ip" "primary" {
-  name                = "tf-vm-ip"
-  allocation_method   = "Static"
-  location            = azurerm_resource_group.primary.location
-  resource_group_name = azurerm_resource_group.primary.name
-  sku                 = "Standard"
+  name                = var.primary_public_ip_name
+  allocation_method   = var.primary_ip_allocation_method
+  location            = var.primary_location
+  resource_group_name = var.primary_resource_group_name
+  sku                 = var.ip_sku
 }
 
 resource "azurerm_public_ip" "secondary" {
-  name                = "tf-vm-ip-s"
-  allocation_method   = "Dynamic"
+  name                = var.secondary_public_ip_name
+  allocation_method   = var.secondary_ip_allocation_method
   location            = azurerm_resource_group.secondary.location
   resource_group_name = azurerm_resource_group.secondary.name
-  sku                 = "Basic"
+  sku                 = var.s_ip_sku
 }
 
 resource "azurerm_network_interface" "vm" {
-  name                = "tf-vm449"
+  name                = var.nic_name
   location            = azurerm_resource_group.primary.location
   resource_group_name = azurerm_resource_group.primary.name
 
-  ip_configuration {
-    name                          = "tf-pvt-vm"
-    subnet_id                     = azurerm_subnet.primary.id
-    private_ip_address_allocation = "Dynamic"
-    public_ip_address_id          = azurerm_public_ip.primary.id
-  }
+  # ip_configuration {
+  #   name                          = "tf-pvt-vm"
+  #   subnet_id                     = azurerm_subnet.primary.id
+  #   private_ip_address_allocation = "Dynamic"
+  #   public_ip_address_id          = azurerm_public_ip.primary.id
+  # }
 }
 
 resource "azurerm_site_recovery_replicated_vm" "vm-replication" {
-  name                                      = "vm-replication"
-  resource_group_name                       = azurerm_resource_group.secondary.name
-  recovery_vault_name                       = azurerm_recovery_services_vault.vault.name
-  source_recovery_fabric_name               = azurerm_site_recovery_fabric.primary.name
+  name                                      = var.vm-replication_name
+  resource_group_name                       = var.secondary_resource_group_name
+  recovery_vault_name                       = var.vault_name
+  source_recovery_fabric_name               = var.primary_fabric_name
   source_vm_id                              = azurerm_virtual_machine.vm.id
   recovery_replication_policy_id            = azurerm_site_recovery_replication_policy.policy.id
-  source_recovery_protection_container_name = azurerm_site_recovery_protection_container.primary.name
+  source_recovery_protection_container_name = var.primary_container_name
 
   target_resource_group_id                = azurerm_resource_group.secondary.id
   target_recovery_fabric_id               = azurerm_site_recovery_fabric.secondary.id
@@ -202,13 +199,13 @@ resource "azurerm_site_recovery_replicated_vm" "vm-replication" {
     disk_id                    = azurerm_virtual_machine.vm.storage_os_disk[0].managed_disk_id
     staging_storage_account_id = azurerm_storage_account.primary.id
     target_resource_group_id   = azurerm_resource_group.secondary.id
-    target_disk_type           = "Standard_HDD_LRS"
-    target_replica_disk_type   = "Standard_HDD_LRS"
+    target_disk_type           = var.disk_type
+    target_replica_disk_type   = var.disk_type
   }
 
   network_interface {
     source_network_interface_id   = azurerm_network_interface.vm.id
-    target_subnet_name            = azurerm_subnet.secondary.name
+    target_subnet_name            = var.secondary_subnet_name
     recovery_public_ip_address_id = azurerm_public_ip.secondary.id
   }
 
@@ -219,7 +216,7 @@ resource "azurerm_site_recovery_replicated_vm" "vm-replication" {
 }
 
 resource "azurerm_site_recovery_replication_recovery_plan" "example" {
-  name                      = "tf-recover-plan"
+  name                      = var.recovery_plan_name
   recovery_vault_id         = azurerm_recovery_services_vault.vault.id
   source_recovery_fabric_id = azurerm_site_recovery_fabric.primary.id
   target_recovery_fabric_id = azurerm_site_recovery_fabric.secondary.id
