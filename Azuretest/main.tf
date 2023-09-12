@@ -5,8 +5,8 @@ provider "azurerm" {
 terraform {
   backend "azurerm"{
     resource_group_name = "cloud-demo"
-    storage_account_name = "evitest"
-    container_name = "tftest"
+    storage_account_name = "testcloud001423"
+    container_name = "terraform"
     key = "terraformtest1.tfstate"
  }
 }
