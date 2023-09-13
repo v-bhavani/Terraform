@@ -83,7 +83,3 @@ variable "datadisktype" {
   description = "name of resource"
   type        = string
 }
-variable "datadisktype1" {
-  description = "name of resource-test"
-  type        = string
-}
