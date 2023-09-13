@@ -11,7 +11,6 @@ location = "East US"
 ip = ["10.0.0.21", "10.0.0.22"]
 vm_size = "Standard_B2s"
 disktype = "Standard_LRS"
-datadisktype1 = "example"
 sourceimageid = "/subscriptions/bf18f464-1469-4216-834f-9c6694dbfe26/resourceGroups/cloud-demo/providers/Microsoft.Compute/galleries/Testsym/images/sym2/versions/0.0.2"
 zone = "1"
 bootdiagnostic = "https://testcloud001423.blob.core.windows.net/"
