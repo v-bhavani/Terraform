@@ -27,6 +27,7 @@ resource "azurerm_public_ip" "vm_public_ip" {
   resource_group_name = var.RG
   allocation_method   = "Dynamic"
   sku                 = "Basic"
+  zone                = 1 
 }
 
 # Define the network interface for the VM and attach the public IP
