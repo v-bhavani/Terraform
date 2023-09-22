@@ -87,12 +87,6 @@ resource "azurerm_linux_virtual_machine" "main" {
   tags = {
     "Resource Holder" = "${var.tagname}"
   }
-
- # Attach the public IP address to the VM
-  os_profile {
-    computer_name  = "${var.vm_names[count.index]}"
-    admin_username = var.username
-  }
 }
 
 # creating data disk
