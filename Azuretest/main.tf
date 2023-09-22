@@ -44,17 +44,16 @@ resource "azurerm_network_interface" "vm_nic" {
     public_ip_address_id          = element(azurerm_public_ip.vm_public_ip.*.id, count.index)
   }
 }
-    lifecycle {
+#  lifecycle {
     # Prevent destruction of the resource
-    prevent_destroy = false
+   # prevent_destroy = false
 
     # Ignore changes to the tags
-    ignore_changes = [
-      tags,
-      ip_configuration,
-    ]
-  }
-}
+   # ignore_changes = [
+   #   tags,
+    #  ip_configuration,
+  #  ]
+ # }
 
 # Create virtual machine
 resource "azurerm_linux_virtual_machine" "main" {
