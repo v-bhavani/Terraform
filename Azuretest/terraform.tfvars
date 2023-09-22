@@ -18,13 +18,13 @@ tagname = "Irfana"
 datadisktype = "Standard_LRS"
 data_disk= {
 "data-disk-1" : {
-vm_name= "/subscriptions/bf18f464-1469-4216-834f-9c6694dbfe26/resourceGroups/tfrg/providers/Microsoft.Compute/virtualMachines/vm1"
+vm_name= "/subscriptions/bf18f464-1469-4216-834f-9c6694dbfe26/resourceGroups/tfrg/providers/Microsoft.Compute/virtualMachines/tfvm"
  disk_name = "data-disk-1"
  disk_size = 10
   lun = 1
    }
 "data-disk-2" : {
-vm_name= "/subscriptions/bf18f464-1469-4216-834f-9c6694dbfe26/resourceGroups/tfrg/providers/Microsoft.Compute/virtualMachines/vm1"
+vm_name= "/subscriptions/bf18f464-1469-4216-834f-9c6694dbfe26/resourceGroups/tfrg/providers/Microsoft.Compute/virtualMachines/tfvm"
  disk_name = "data-disk-2"
  disk_size = 10
   lun = 2
