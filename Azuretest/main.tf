@@ -46,6 +46,17 @@ resource "azurerm_network_interface" "vm_nic" {
   }
 }
 
+# Create a public IP address
+resource "azurerm_public_ip" "vm_public_ip" {
+  count               = length(var.vm_names)
+  name                = "public-ip-${var.vm_names[count.index]}"
+  location            = var.location
+  resource_group_name = var.RG
+  allocation_method   = "Dynamic"
+  sku                 = "Basic"
+}
+
+
 # Create virtual machine
 resource "azurerm_linux_virtual_machine" "main" {
      count                 = length(var.vm_names)
@@ -75,6 +86,12 @@ resource "azurerm_linux_virtual_machine" "main" {
 
   tags = {
     "Resource Holder" = "${var.tagname}"
+  }
+
+ # Attach the public IP address to the VM
+  os_profile {
+    computer_name  = "${var.vm_names[count.index]}"
+    admin_username = var.username
   }
 }
 
