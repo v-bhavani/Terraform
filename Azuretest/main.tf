@@ -19,21 +19,31 @@ data "azurerm_subnet" "existing_subnet" {
   resource_group_name  = var.RG    #data.azurerm_resource_group.existing_rg.name
 }
 
-# Define the network interface for the VM
+# Create a public IP address
+resource "azurerm_public_ip" "vm_public_ip" {
+  count               = length(var.vm_names)
+  name                = "public-ip-${var.vm_names[count.index]}"
+  location            = var.location
+  resource_group_name = var.RG
+  allocation_method   = "Dynamic"
+  sku                 = "Basic"
+}
 
+# Define the network interface for the VM and attach the public IP
 resource "azurerm_network_interface" "vm_nic" {
-  #for_each = var.resourcedetails
   count               = length(var.vm_names)
   name                = "${var.vm_names[count.index]}"
-  location            = var.location      #azurerm_resource_group.myrg[each.key].location
-  resource_group_name = var.RG   #data.azurerm_resource_group.existing_rg.name
+  location            = var.location
+  resource_group_name = var.RG
 
-   ip_configuration {
+  ip_configuration {
     name                          = "${var.vm_names[count.index]}"
     subnet_id                     = data.azurerm_subnet.existing_subnet.id
     private_ip_address_allocation = "Static"
     private_ip_address            = var.ip[count.index]
+    public_ip_address_id          = element(azurerm_public_ip.vm_public_ip.*.id, count.index)
   }
+}
     lifecycle {
     # Prevent destruction of the resource
     prevent_destroy = false
@@ -45,17 +55,6 @@ resource "azurerm_network_interface" "vm_nic" {
     ]
   }
 }
-
-# Create a public IP address
-resource "azurerm_public_ip" "vm_public_ip" {
-  count               = length(var.vm_names)
-  name                = "public-ip-${var.vm_names[count.index]}"
-  location            = var.location
-  resource_group_name = var.RG
-  allocation_method   = "Dynamic"
-  sku                 = "Basic"
-}
-
 
 # Create virtual machine
 resource "azurerm_linux_virtual_machine" "main" {
