@@ -27,7 +27,7 @@ resource "azurerm_public_ip" "vm_public_ip" {
   resource_group_name = var.RG
   allocation_method   = "Dynamic"
   sku                 = "Basic"
-  zones                = "${var.zone}" 
+  # zone                = "${var.zone}" 
 }
 
 # Define the network interface for the VM and attach the public IP
@@ -77,7 +77,7 @@ resource "azurerm_linux_virtual_machine" "main" {
 
  source_image_id = "${var.sourceimageid}"
 
- zone = "${var.zone}"
+ # zone = "${var.zone}"
 
  boot_diagnostics {
     storage_account_uri = "${var.bootdiagnostic}"
@@ -98,7 +98,7 @@ for_each = var.data_disk
   storage_account_type = "${var.datadisktype}"
   create_option        = "Empty"
   disk_size_gb         = each.value.disk_size
-  zone                 = "${var.zone}"
+  # zone                 = "${var.zone}"
 
   tags = {
     "Resource Holder" = "${var.tagname}"
