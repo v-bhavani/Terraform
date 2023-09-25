@@ -31,13 +31,13 @@ vm_name= "/subscriptions/bf18f464-1469-4216-834f-9c6694dbfe26/resourceGroups/tfr
    }
 "data-disk-3" : {
 vm_name= "/subscriptions/bf18f464-1469-4216-834f-9c6694dbfe26/resourceGroups/tfrg/providers/Microsoft.Compute/virtualMachines/tfvm"
- disk_name = "data-disk-1"
+ disk_name = "data-disk-3"
  disk_size = 64
   lun = 3
    }
 "data-disk-4" : {
 vm_name= "/subscriptions/bf18f464-1469-4216-834f-9c6694dbfe26/resourceGroups/tfrg/providers/Microsoft.Compute/virtualMachines/tfvm"
- disk_name = "data-disk-1"
+ disk_name = "data-disk-4"
  disk_size = 128
   lun = 4
    }
