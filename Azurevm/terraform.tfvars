@@ -1,4 +1,4 @@
-vm_names       = ["tfvm1"]
+vm_names       = ["tfvm"]
 username       = "azureadmin"
 password       = "H3r3andth3r3"
 #resource_group_id  = "/subscriptions/bf18f464-1469-4216-834f-9c6694dbfe26/resourceGroups/tfrg"
