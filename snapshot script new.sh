@@ -1,9 +1,7 @@
 #!/bin/bash
 
 echo "Checking snapshots in Demo Account" 
-export AWS_ACCESS_KEY_ID=AKIARBG5NJFCMCGIDUST
-export AWS_SECRET_ACCESS_KEY=hsiULGQQ+iormtpIdZ0O0+hzVQbKIRm2e0VyDuur
-export AWS_DEFAULT_REGION=us-east-1
+
 
 # Get your AWS account ID
 AWS_ACCOUNT_ID=$(aws sts get-caller-identity --output text --query 'Account')
