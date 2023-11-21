@@ -1,5 +1,5 @@
-role1 = "Subaccount Administrator"
-role2 = "Subaccount Service Administrator"
+#role1 = "Subaccount Administrator"
+#role2 = "Subaccount Service Administrator"
 subaccount_id = "${var.subaccountid}"
 global_account = "${var.global_account}"
 username = "${var.username}"
