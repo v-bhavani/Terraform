@@ -1,9 +1,9 @@
-variable "role1" {
-    type = string
-}
-variable "role2" {
-    type = string
-}
+#variable "role1" {
+#    type = string
+#}
+#variable "role2" {
+#    type = string
+#}
 
 variable "subaccount_id" {
     type = string
