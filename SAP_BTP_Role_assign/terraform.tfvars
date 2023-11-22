@@ -5,4 +5,4 @@ global_account = "basisexpertconsultingservicesbv"
 username = "dinesh.kumar@basiscloudsolutions.com"
 password = "Din1@3esh"
 subaccount_admins         = [${var.subaccount_admins}] 
-#subaccount_service_admins = ${var.subaccount_service_admins}
+subaccount_service_admins = [${var.subaccount_service_admins}]
