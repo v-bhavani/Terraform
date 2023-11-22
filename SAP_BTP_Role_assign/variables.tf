@@ -24,8 +24,8 @@ variable "subaccount_admins" {
   description = "Defines the colleagues who are added to each subaccount as subaccount administrators."
 }
 
- #variable "subaccount_service_admins" {
-  #type        = list(string)
-  #description = "Defines the colleagues who are added to each subaccount as subaccount service administrators."
- #}
+ variable "subaccount_service_admins" {
+  type        = list(string)
+  description = "Defines the colleagues who are added to each subaccount as subaccount service administrators."
+ }
  
