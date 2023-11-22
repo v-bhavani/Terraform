@@ -24,9 +24,9 @@ resource "btp_subaccount_role_collection_assignment" "subaccount-admins" {
   user_name            = each.value
 }
 
- #resource "btp_subaccount_role_collection_assignment" "subaccount-service-admins" {
-  #for_each             = toset("${var.subaccount_service_admins}")
-  #subaccount_id        = var.subaccount_id
-  #role_collection_name = "Subaccount Service Administrator"
-  #user_name            = each.value
-#}
+ resource "btp_subaccount_role_collection_assignment" "subaccount-service-admins" {
+  for_each             = toset("${var.subaccount_service_admins}")
+  subaccount_id        = var.subaccount_id
+  role_collection_name = "Subaccount Service Administrator"
+  user_name            = each.value
+}
