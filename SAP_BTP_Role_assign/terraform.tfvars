@@ -1,9 +1,7 @@
-#role1 = "Subaccount Administrator"
-#role2 = "Subaccount Service Administrator"
-subaccount_id = "5ec57e8d-be52-47c3-8274-7cc86ef51f4f"
-global_account = "basisexpertconsultingservicesbv"
-username = "dinesh.kumar@basiscloudsolutions.com"
-password = "Din1@3esh"
+subaccount_id = $var.subaccountid
+global_account = $var.globalaccname
+username = $var.username
+password = $var.password
 subaccount_admins         = [${var.subaccount_admins}] 
 subaccount_service_admins = [${var.subaccount_service_admins}]
-custom_idp                = "sap.custom"
+custom_idp                = $var.customidp
