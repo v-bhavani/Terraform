@@ -22,6 +22,7 @@ resource "btp_subaccount_role_collection_assignment" "subaccount-admins" {
   subaccount_id        = var.subaccount_id
   role_collection_name = "Subaccount Administrator"
   user_name            = each.value
+  origin               = var.custom_idp
 }
 
  resource "btp_subaccount_role_collection_assignment" "subaccount-service-admins" {
@@ -29,4 +30,5 @@ resource "btp_subaccount_role_collection_assignment" "subaccount-admins" {
   subaccount_id        = var.subaccount_id
   role_collection_name = "Subaccount Service Administrator"
   user_name            = each.value
+  origin               = var.custom_idp
 }
