@@ -11,7 +11,7 @@ variable "username" {
 variable "password" {
     type = string
 }
-variable "role" {
+variable "Role" {
     type = string
 }
  variable "users" {
