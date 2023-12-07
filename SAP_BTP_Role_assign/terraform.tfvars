@@ -6,4 +6,4 @@ Role10   = "$var.Role10"
 Role13   = "$var.Role13"
 Z_CUSTOM         = [${var.subaccount_admins}] 
 subaccount_service_admins = [${var.subaccount_service_admins}]
-custom_idp                = $var.customidp
+custom_idp                = "$var.customidp"
