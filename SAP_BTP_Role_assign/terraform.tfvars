@@ -3,5 +3,5 @@ global_account = "$var.globalaccname"
 username = "$var.username"
 password = "$var.password"
 Role   = "$var.role"
-users = [${var.subaccount_admins}]
+users = [${var.users}]
 identity_provider   = "$var.customidp"
