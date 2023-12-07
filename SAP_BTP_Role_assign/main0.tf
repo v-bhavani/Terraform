@@ -17,18 +17,18 @@ provider "btp" {
   password      = var.password
 }
 
-resource "btp_subaccount_role_collection_assignment" "subaccount-admins" {
-  for_each             = toset("${var.subaccount_admins}")
+resource "btp_subaccount_role_collection_assignment" "Z_CUSTOM" {
+  for_each             = toset("${var.Z_CUSTOM_users}")
   subaccount_id        = var.subaccount_id
-  role_collection_name = "Subaccount Administrator"
+  role_collection_name = var.Role13
   user_name            = each.value
   origin               = var.custom_idp
 }
 
  resource "btp_subaccount_role_collection_assignment" "subaccount-service-admins" {
-  for_each             = toset("${var.subaccount_service_admins}")
+  for_each             = toset("${var.subaccount_service_admin_users}")
   subaccount_id        = var.subaccount_id
-  role_collection_name = "Subaccount Service Administrator"
+  role_collection_name = var.Role10
   user_name            = each.value
   origin               = var.custom_idp
 }
