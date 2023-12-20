@@ -20,7 +20,7 @@ provider "btp" {
 resource "btp_subaccount_role_collection_assignment" "Z_CUSTOM" {
   for_each             = toset("${var.Z_CUSTOM_users}")
   subaccount_id        = var.subaccount_id
-  role_collection_name = var.Role13
+  role_collection_name = Z_CUSTOM
   user_name            = each.value
   origin               = var.custom_idp
 }
@@ -28,7 +28,7 @@ resource "btp_subaccount_role_collection_assignment" "Z_CUSTOM" {
  resource "btp_subaccount_role_collection_assignment" "subaccount-service-admins" {
   for_each             = toset("${var.subaccount_service_admin_users}")
   subaccount_id        = var.subaccount_id
-  role_collection_name = var.Role10
+  role_collection_name = Subaccount Service Administrator
   user_name            = each.value
   origin               = var.custom_idp
 }
