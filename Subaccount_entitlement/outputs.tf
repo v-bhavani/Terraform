@@ -3,7 +3,7 @@ output "parent_directory_id" {
 }
 
 output "subaccount_ids" {
-  value = btp_subaccount.subaccount[*].id
+  value = btp_subaccount.subaccount.id
 }
 
 output "entitlement_id" {
