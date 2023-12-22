@@ -15,7 +15,7 @@ variable "role" {
     type = string
 }
  variable "users" {
-  type        = list(string)
+  type        = string
   description = "Defines the colleagues who are added to each subaccount as subaccount service administrators."
 }
  variable "identity_provider" {
