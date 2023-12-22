@@ -14,11 +14,6 @@ variable "subaccount_name" {
   description = "Short name for the organization the subaccount shall belong to."
 }
 
-variable "directory_name" {
-  type        = string
-  description = "Defines to which organization the subaccount shall belong to."
-}
-
 variable "globalaccount" {
   description = "BTP global account"
   type        = string
