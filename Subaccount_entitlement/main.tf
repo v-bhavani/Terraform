@@ -17,21 +17,11 @@ provider "btp" {
   password      = var.password
 }
 
-resource "btp_directory" "parent" {
-  name        = var.directory_name
-  description = "This is the parent directory for ${var.directory_name}."
-  labels      = {
-    "architect"   = [var.architect]
-    "costcenter"  = [var.costcenter]
-    "owner"       = [var.owner]
-    "team"        = [var.team]
-  }
-}
-
 resource "btp_subaccount" "subaccount" {
   name      = var.subaccount_name
   subdomain = replace(lower(replace(var.subaccount_name, "_", "-")), " ", "")
   region    = var.region
+  parent_id = var.parent_directory
 }
 resource "btp_subaccount_entitlement" "alert_notification_service" {
   subaccount_id = btp_subaccount.subaccount.id
