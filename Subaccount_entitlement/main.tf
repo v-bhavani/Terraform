@@ -29,9 +29,8 @@ resource "btp_directory" "parent" {
 }
 
 resource "btp_subaccount" "subaccount" {
-  count     = length(var.subaccount_name)
   name      = var.subaccount_name
-  subdomain = replace(lower(replace(var.subaccount_name[count.index], "_", "-")), " ", "")
+  subdomain = replace(lower(replace(var.subaccount_name, "_", "-")), " ", "")
   region    = var.region
 }
 resource "btp_subaccount_entitlement" "alert_notification_service" {
