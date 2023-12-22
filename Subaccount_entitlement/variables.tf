@@ -3,9 +3,9 @@ variable "region" {
   description = "Region where the subaccount will be running."
 }
 
-variable "parent_directory_id" {
+variable "parent_directory" {
   type        = string
-  description = "Id of the parent directory or null for the global account as parent."
+  description = "name of the parent directory or null for the global account as parent."
   default     = null
 }
 
