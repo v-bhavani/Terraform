@@ -32,28 +32,15 @@ variable "password" {
   sensitive   = true
 }
 
-variable "costcenter" {
-  type        = string
-  description = "Defines the cost center for the subaccount"
-}
-
 variable "owner" {
   type        = string
   description = "Defines the owner of the subaccount"
 }
 
-variable "team" {
-  type        = string
-  description = "Defines the team of the subaccount"
-}
-
-variable "architect" {
-  type        = string
-  description = "Defines the email address of the architect for the subaccount"
-}
 variable "entitlement_name" {
   type        = string
 }
+
 variable "plan" {
   type        = string
 }
