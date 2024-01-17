@@ -22,15 +22,6 @@ variable "password" {
   type        = string
 }
 
-/*variable "resource_group_id" {
-  description = "ID of the existing resource group"
-  type        = string
-}
-
-variable "virtual_network_id" {
-  description = "ID of the existing virtual network"
-  type        = string
-}*/
 variable "resourcedetails" {
   description = "name of resource"
   type        = string
@@ -67,15 +58,20 @@ variable "sourceimageid" {
   description = "name of resource"
   type        = string
 }
-# variable "zone" {
-#  description = "name of resource"
-#  type        = string
-# }
+
 variable "bootdiagnostic" {
   description = "name of resource"
   type        = string
 }
-variable "tagname" {
+variable "project" {
+  description = "name of resource"
+  type        = string
+}
+variable "duration" {
+  description = "name of resource"
+  type        = string
+}
+variable "owner" {
   description = "name of resource"
   type        = string
 }
