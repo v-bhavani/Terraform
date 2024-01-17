@@ -27,7 +27,11 @@ resource "azurerm_public_ip" "vm_public_ip" {
   resource_group_name = var.RG
   allocation_method   = "Dynamic"
   sku                 = "Basic"
-  # zone                = "${var.zone}" 
+   tags = {
+    "Project" = "${var.project}"
+    "Duration" = "${var.duration}"
+    "Owner" = "${var.owner}"
+  }
 }
 
 # Define the network interface for the VM and attach the public IP
@@ -44,17 +48,12 @@ resource "azurerm_network_interface" "vm_nic" {
     private_ip_address            = var.ip[count.index]
     public_ip_address_id          = element(azurerm_public_ip.vm_public_ip.*.id, count.index)
   }
+ tags = {
+    "Project" = "${var.project}"
+    "Duration" = "${var.duration}"
+    "Owner" = "${var.owner}"
+  }
 }
-#  lifecycle {
-    # Prevent destruction of the resource
-   # prevent_destroy = false
-
-    # Ignore changes to the tags
-   # ignore_changes = [
-   #   tags,
-    #  ip_configuration,
-  #  ]
- # }
 
 # Create virtual machine
 resource "azurerm_linux_virtual_machine" "main" {
@@ -84,7 +83,9 @@ resource "azurerm_linux_virtual_machine" "main" {
   }
 
   tags = {
-    "Resource Holder" = "${var.tagname}"
+    "Project" = "${var.project}"
+    "Duration" = "${var.duration}"
+    "Owner" = "${var.owner}"
   }
 }
 
@@ -101,20 +102,10 @@ for_each = var.data_disk
   # zone                 = "${var.zone}"
 
   tags = {
-    "Resource Holder" = "${var.tagname}"
+    "Project" = "${var.project}"
+    "Duration" = "${var.duration}"
+    "Owner" = "${var.owner}"
   }
-}
-
-/*
-output "vm_ids" {
-  value = azurerm_linux_virtual_machine.main[*].id
-}*/
-
-
-output "virtual_machine_ids" {
-  value = tomap({
-    for k, vm in azurerm_linux_virtual_machine.main : k => vm.id
-  })
 }
 
 # Attach the disk to the existing virtual machine
