@@ -67,15 +67,19 @@ variable "sourceimageid" {
   description = "name of resource"
   type        = string
 }
-# variable "zone" {
-#  description = "name of resource"
-#  type        = string
-# }
 variable "bootdiagnostic" {
   description = "name of resource"
   type        = string
 }
-variable "tagname" {
+variable "project" {
+  description = "name of resource"
+  type        = string
+}
+variable "duration" {
+  description = "name of resource"
+  type        = string
+}
+variable "owner" {
   description = "name of resource"
   type        = string
 }
