@@ -12,9 +12,10 @@ ip = ["10.0.0.21"]
 vm_size = "Standard_B2s"
 disktype = "Standard_LRS"
 sourceimageid = "/subscriptions/bf18f464-1469-4216-834f-9c6694dbfe26/resourceGroups/cloud-demo/providers/Microsoft.Compute/galleries/Testsym/images/sym2/versions/0.0.2"
-# zone = "1"
 bootdiagnostic = "https://testcloud001423.blob.core.windows.net/"
-tagname = "Irfana"
+project = "Terraform test"
+duration = "required duretion"
+owner = "Irfana"
 datadisktype = "Standard_LRS"
 data_disk= {
 "data-disk-1" : {
