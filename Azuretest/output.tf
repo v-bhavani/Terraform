@@ -13,7 +13,7 @@ output "vm_ids" {
   value       = azurerm_linux_virtual_machine.main[*].id
 }
 
-output "data_disk_ids" {
-  description = "IDs of the created data disks"
-  value       = azurerm_managed_disk.source1[*].id
-}
+#output "data_disk_ids" {
+#  description = "IDs of the created data disks"
+#  value       = azurerm_managed_disk.source1[*].id
+#}
