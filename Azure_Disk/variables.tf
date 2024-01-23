@@ -13,12 +13,15 @@ variable "st_acc_type" {
 variable "disktype" {
   type        = number
 }
-#variable "Project" {
-#  type        = number
-#}
-#variable "Owner" {
-#  type        = number
-#}
-#variable "Duration" {
-#  type        = number
-#}
+variable "project" {
+  description = "name of resource"
+  type        = string
+}
+variable "duration" {
+  description = "name of resource"
+  type        = string
+}
+variable "owner" {
+  description = "name of resource"
+  type        = string
+}
