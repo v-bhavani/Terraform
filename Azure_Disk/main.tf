@@ -11,8 +11,8 @@ resource "azurerm_managed_disk" "example" {
   disk_size_gb         = var.disktype  # Replace with the desired disk size in GB
 
   tags = {
-    "Project" = "Terraform test"
-    "Owner"   = "Irfana"
-    "Duration" = "23/01/2024"
+    "Project" = "${var.project}"
+    "Duration" = "${var.duration}"
+    "Owner" = "${var.owner}"
   }
 }
