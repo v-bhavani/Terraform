@@ -2,6 +2,16 @@ variable "resource_group" {
   description = "The name of the resource group."
 }
 
+variable "project" {
+  description = "The name of the project."
+}
+variable "owner" {
+  description = "The name of the owner."
+}
+variable "duration" {
+  description = "time required for testing."
+}
+
 variable "location" {
   description = "The location of the resource group."
 }
