@@ -4,15 +4,12 @@ variable "resource_group" {
 
 variable "project" {
   description = "The name of the project."
-  type = stirng
 }
 variable "owner" {
   description = "The name of the owner."
-  type = stirng
 }
 variable "duration" {
   description = "time required for testing."
-  type = stirng
 }
 
 variable "location" {
