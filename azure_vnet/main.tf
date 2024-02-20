@@ -19,9 +19,4 @@ resource "azurerm_subnet" "example" {
   resource_group_name = var.resource_group
   virtual_network_name = azurerm_virtual_network.example.name
   address_prefixes     = var.subnet_address_prefixes
- tags = {
-    "Project" = var.project
-    "Duration" = var.duration
-    "Owner" = var.owner
-  }
 }
