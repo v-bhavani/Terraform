@@ -7,6 +7,11 @@ resource "azurerm_virtual_network" "example" {
   address_space       = var.address_space
   location            = var.location
   resource_group_name = var.resource_group
+ tags = {
+    "Project" = var.project
+    "Duration" = var.duration
+    "Owner" = var.owner
+  }
 }
 
 resource "azurerm_subnet" "example" {
@@ -14,4 +19,9 @@ resource "azurerm_subnet" "example" {
   resource_group_name = var.resource_group
   virtual_network_name = azurerm_virtual_network.example.name
   address_prefixes     = var.subnet_address_prefixes
+ tags = {
+    "Project" = var.project
+    "Duration" = var.duration
+    "Owner" = var.owner
+  }
 }
