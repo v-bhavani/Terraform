@@ -5,7 +5,7 @@ provider "azurerm" {
 resource "azurerm_virtual_network" "example" {
   name                = var.virtual_network_name
   address_space       = var.address_space
-  location            = azurerm_resource_group.example.location
+  location            = var.location
   resource_group_name = var.resource_group
 }
 
