@@ -4,7 +4,7 @@ variable project_id {
 variable region {
     type = string
 }
-variable tf_service_account {
+variable credentials_file_path {
     type = string
 }
 variable disk_name {
