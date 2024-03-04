@@ -10,6 +10,10 @@ variable "volume_size" {
   description = "Size of the EBS volume in GB"
 }
 
+variable "disk_type" {
+  description = "Size of the EBS volume in GB"
+}
+
 // Uncomment below if you want to use an existing snapshot
 // variable "snapshot_id" {
 //   description = "ID of the snapshot to use for the EBS volume"
