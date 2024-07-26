@@ -1,0 +1,11 @@
+aws_region         = "us-east-1"
+instance_type      = "t2.micro"
+ami_id             = "ami-04c9d7e18b307fef6"
+subnet_id          = "subnet-1abd9a3b"
+security_group_id  = "sg-050a461e0b4c390fe"
+key_name           = "linuxmgm01"
+volume_size        = 2
+volume_type        = "standard"
+availability_zone  = "us-east-1c"
+ami_name           = "testami"
+ami_description    = "A custom AMI created using Terraform"
