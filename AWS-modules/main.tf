@@ -2,6 +2,14 @@ provider "aws" {
   region = var.aws_region
 }
 
+terraform {
+  backend "s3" {
+    bucket         = "terraform-state-bucket-bcs"
+    key            = "tf/terraformstart.tfstate"
+    region         = "us-east-1"
+    dynamodb_table = "terraform-locks"
+  }
+}
 module "ec2_instance" {
   source           = "./modules/ec2-instance"
   instance_type    = var.instance_type
