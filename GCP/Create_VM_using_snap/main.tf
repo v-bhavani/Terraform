@@ -6,7 +6,7 @@ provider "google" {
 terraform {
   backend "gcs" {
     bucket  = "terraformbcs" # Replace with your bucket name
-    prefix  = "terraform/state"  # Path within the bucket for storing state files
+    prefix  = "terraform/state/vm.tfstate"  # Path within the bucket for storing state files
   }
 }
 
