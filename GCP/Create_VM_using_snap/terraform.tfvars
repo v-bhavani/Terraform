@@ -2,8 +2,8 @@
 project_id         = "mymigration-322809"
 region             = "us-central1"
 zone               = "us-central1-a"
-vm_name            = "my-vm-instance"
-machine_type       = "n1-standard-1"  # or any other machine type
+vm_name            = "bcsvmterraform"
+machine_type       = "e2-standard-8"  # or any other machine type
 snapshot_name      = "goldensnapterraform"
 disk_size_gb       = 20
 disk_type          = "pd-standard"  # or "pd-ssd"
