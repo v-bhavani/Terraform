@@ -1,0 +1,9 @@
+project_id   = "mymigration-322809"
+region       = "us-central1"
+zone         = "us-central1-a"
+disk_name    = "new-disktf"
+disk_sizes    = [10, 20]
+vm_name      = "ansible"
+environment  = "production"
+disk_type    = "pd-standard"  # "pd-standard", "pd-balanced", "pd-extreme"
+disk_count   = 2
