@@ -10,3 +10,7 @@ output "vm_name" {
 output "private_ip" {
   value = google_compute_instance.vm_instance.network_interface[0].network_ip
 }
+
+output "instance_id" {
+  value = google_compute_instance.vm_instance.id
+}
