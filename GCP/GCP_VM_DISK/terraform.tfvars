@@ -38,7 +38,25 @@ vms = [
       {
         name    = "vm2-disk-3"
         size_gb = 30
+      },
+]
+  },
+          # Push the latest to github
+    {
+    name         = "vm3-saphana"
+    machine_type = "e2-standard-8"
+    zone         = "us-central1-a"
+    disks = [
+      {
+        name    = "vm3-disk-1"
+        size_gb = 15
+      },
+      {
+        name    = "vm3-disk-2"
+        size_gb = 25
       }
+    ]
+  }
 ]
 
 tags = ["web", "production"]   #Network Tags
