@@ -5,14 +5,14 @@ network_name         = "default"
 subnet_name          = "default"
 service_account_email = "serviceacforiam@mymigration-322809.iam.gserviceaccount.com"
 snapshot_name        = "ansiblegloden"
- 
+
 vms = [
   {
     name         = "vm1-sl"
     machine_type = "e2-standard-8"
     zone         = "us-central1-a"
     disks = [
-     {
+      {
         name    = "vm1-usr-sap"
         size_gb = 32
       },
@@ -33,5 +33,7 @@ vms = [
         size_gb = 64
       }
     ]
+    tags = ["web", "production"]  
   }
-tags = ["web", "production"]
+]
+
