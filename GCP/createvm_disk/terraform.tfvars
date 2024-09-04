@@ -19,15 +19,15 @@ vms = [
       {
         name    = "vm1-shared"
         size_gb = 16
-      }
+      },
       {
         name    = "vm1-data"
         size_gb = 64
-      }
+      },
       {
         name    = "vm1-log"
         size_gb = 16
-      }
+      },
       {
         name    = "vm1-softdump"
         size_gb = 64
