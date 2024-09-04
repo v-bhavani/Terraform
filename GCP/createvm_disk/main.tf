@@ -69,7 +69,7 @@ resource "google_compute_instance" "vm_instance" {
     for_each = {
       for key, disk in google_compute_disk.data_disk :
       key => disk
-      if disk.vm_name == each.value.name
+      if split("-", key)[0] == each.value.name
     }
     content {
       source = attached_disk.value.self_link
