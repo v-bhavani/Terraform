@@ -33,7 +33,6 @@ vms = [
         size_gb = 64
       }
     ]
-    tags = ["web", "production"]  
   }
 ]
-
+tags = ["web", "production"]
