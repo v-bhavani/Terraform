@@ -6,7 +6,7 @@ service_account_email = "serviceacforiam@mymigration-322809.iam.gserviceaccount.
 snapshot_name        = "$snapshot"
 vms = [
   {
-    name         = "$vm1-name"
+    name         = "$vmname"
     machine_type = "$machinetype"
     zone         = "$zone"
   }
