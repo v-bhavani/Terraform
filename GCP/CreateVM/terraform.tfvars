@@ -10,6 +10,7 @@ vms = [
     name         = "$vmname"
     machine_type = "$machinetype"
     zone         = "$zone1"
+    disks = []
   }
 ]
 tags = ["web", "production"]
