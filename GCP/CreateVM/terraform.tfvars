@@ -3,7 +3,7 @@ region               = "$region"
 zone                 = "$zone1"
 network_name         = "$network"
 subnet_name          = "$subnet"
-service_account_email = "serviceacforiam@mymigration-322809.iam.gserviceaccount.com"
+service_account_email = "$service"
 snapshot_name        = "$snapshot"
 vms = [
   {
