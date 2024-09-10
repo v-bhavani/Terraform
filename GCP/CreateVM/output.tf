@@ -13,3 +13,9 @@ output "vm_instance_details" {
     }
   }
 }
+
+output "instance_ids" {
+  value = {
+    for vm_name, vm in google_compute_instance.vm_instance : vm_name => vm.instance_id
+  }
+}
