@@ -35,6 +35,22 @@ vms = [
         size_gb = 20
       }
     ]
+  },
+  {
+    name         = "vm3-appstore"
+    machine_type = "e2-standard-8"
+    zone         = "us-central1-a"
+    disks = [
+      {
+        name    = "test3disk1"
+        size_gb = 10
+      },
+      {
+        name    = "test3disk2"
+        size_gb = 15
+      }
+    ]
   }
+
 ]
 tags = ["web", "production"]
