@@ -1,38 +1,38 @@
-project_id           = "$project_id"
-region               = "$region"
-zone                 ="$zone"
-network_name         = "$network"
-subnet_name          = "$subnet"
+project_id           = "mymigration-322809"
+region               = "us-central1"
+zone                 ="us-central1-a"
+network_name         = "default"
+subnet_name          = "default"
 service_account_email = "serviceacforiam@mymigration-322809.iam.gserviceaccount.com"
-snapshot_name        = "$snapshot"
+snapshot_name        = "ansiblegloden"
 vms = [
   {
-    name         = "$vm1-name"
-    machine_type = "$machinetype"
-    zone         = "$zone"
+    name         = "vm1-appstore"
+    machine_type = "e2-standard-8"
+    zone         = "us-central1-a"
     disks = [
      {
-        name    = "$vm1disk1"
-        size_gb = $vm1disk1size
+        name    = "test1disk1"
+        size_gb = 10
       },
       {
-        name    = "$vm1disk2"
-        size_gb = $vm1disk2size
+        name    = "test1disk2"
+        size_gb = 16
       }
     ]
   },
   {
-    name         = "$vm2-name"
-    machine_type = "$machinetype"
-    zone         = "$zone"
+    name         = "vm2-appstore"
+    machine_type = "e2-standard-8"
+    zone         = "us-central1-a"
     disks = [
       {
-        name    = "$vm2disk1"
-        size_gb = $vm2disk1size
+        name    = "test2disk1"
+        size_gb = 16
       },
       {
-        name    = "$vm2disk2"
-        size_gb = $vm2disk2size
+        name    = "test2disk2"
+        size_gb = 20
       }
     ]
   }
