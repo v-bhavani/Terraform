@@ -8,7 +8,7 @@ provider "google" {
 terraform {
   backend "gcs" {
     bucket = "terraformbackline"  # Replace with your bucket name
-    prefix = "state/blackline.tfstate"
+    prefix = "state/test.tfstate"
   }
 }
 
