@@ -20,6 +20,21 @@ vms = [
          size_gb = 20
        }
     ]
+  },
+  {
+    name         = "vm2-hana"
+    machine_type = "e2-standard-8"
+    zone         = "us-central1-a"
+    disks = [
+      {
+        name    = "vm2-disk-1"
+        size_gb = 10
+      },
+       {
+         name    = "vm2-disk-2"
+         size_gb = 30
+       }
+    ]
   }
 ]
 tags = ["web", "production"]
