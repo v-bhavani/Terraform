@@ -8,7 +8,7 @@ provider "google" {
 terraform {
   backend "gcs" {
     bucket = "terraformbcs"  # Replace with your bucket name
-    prefix = "terraform/state/appstore.tfstate"
+    prefix = "terraform/state/appstore1.tfstate"
   }
 }
 
