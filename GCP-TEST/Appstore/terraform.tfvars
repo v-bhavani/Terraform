@@ -20,21 +20,6 @@ vms = [
          size_gb = 20
        }
     ]
-  },
-    {
-    name         = "vm2-appstore-vm"
-    machine_type = "e2-standard-8"
-    zone         = "us-central1-a"
-    disks = [
-      {
-        name    = "vm1-disk-1"
-        size_gb = 10
-      },
-       {
-         name    = "vm1-disk-2"
-         size_gb = 20
-       }
-    ]
   }
 ]
 tags = ["web", "production"]
