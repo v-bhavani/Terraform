@@ -22,7 +22,7 @@ vms = [
     ]
   },
     {
-    name         = "vm2-appstore"
+    name         = "vm2-appstore-vm"
     machine_type = "e2-standard-8"
     zone         = "us-central1-a"
     disks = [
