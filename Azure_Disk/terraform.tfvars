@@ -4,5 +4,5 @@ diskname = "testdisktf1"
 st_acc_type = "Standard_LRS"
 disktype = 4
 project = "Terraform test"
-duration = "required duretion"
+duration = "required duration"
 owner = "Irfana"
