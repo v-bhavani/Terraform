@@ -1,5 +1,4 @@
-
-  network_name = "default"
+network_name = "default"
   project_id = "mymigration-322809"
   region = "us-central1"
   service_account_email = "serviceacforiam@mymigration-322809.iam.gserviceaccount.com"
@@ -7,7 +6,7 @@
   subnet_name = "default"
   tags = [
     "web",
-    "production"
+    "production","test"
   ]
   vms = [
     {
