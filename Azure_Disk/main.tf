@@ -4,15 +4,15 @@ provider "azurerm" {
 
 resource "azurerm_managed_disk" "example" {
   name                 = var.diskname
-  location             = var.location  # Replace with your desired location
-  resource_group_name  = var.resourcegroup  # Replace with your existing resource group name
+  location             = var.location
+  resource_group_name  = var.resourcegroup
   storage_account_type = var.st_acc_type
   create_option        = "Empty"
-  disk_size_gb         = var.disktype  # Replace with the desired disk size in GB
+  disk_size_gb         = var.disktype
 
   tags = {
-    "Project" = "${var.project}"
-    "Duration" = "${var.duration}"
-    "Owner" = "${var.owner}"
+    Project  = var.project
+    Duration = var.duration
+    Owner    = var.owner
   }
 }
