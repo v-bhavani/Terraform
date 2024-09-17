@@ -25,5 +25,3 @@ vms = [
     ]
   }
 ]
-
-#thankyou
