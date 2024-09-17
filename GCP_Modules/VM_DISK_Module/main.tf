@@ -3,10 +3,11 @@ provider "google" {
   region  = var.region
 }
 
+# Configure the backend
 terraform {
   backend "gcs" {
-    bucket = "terraformbcs"  # Replace with your bucket name
-    prefix = "terraform/state/modules.tfstate"
+    bucket = "terraformbackline"  # Replace with your bucket name
+    prefix = "state/blackline.tfstate"
   }
 }
 
