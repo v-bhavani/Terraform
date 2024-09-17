@@ -17,11 +17,7 @@ vms = [
       {
         name    = "vm-1-data-1"
         size_gb = 10
-      },
-     {
-        name    = "vm-1-data-2"
-        size_gb = 10
-      }
+}
     ]
   }
 ]
