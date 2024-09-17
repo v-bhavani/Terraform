@@ -10,17 +10,17 @@ tags =                   ["web", "production"]
 
 vms = [
   {
-    name         = "vmtest1"
+    name         = "vm1-symtest"
     machine_type = "e2-standard-8"
     zone         = "us-central1-a"
     disks = [
       {
         name    = "vm-1-data-1"
-        size_gb = 15
+        size_gb = 10
       },
      {
         name    = "vm-1-data-2"
-        size_gb = 20
+        size_gb = 10
       }
     ]
   }
