@@ -8,16 +8,6 @@ variable "region" {
   type        = string
 }
 
-variable "state_bucket" {
-  description = "The name of the GCS bucket for storing Terraform state"
-  type        = string
-}
-
-variable "state_prefix" {
-  description = "The prefix for the Terraform state file in the GCS bucket"
-  type        = string
-}
-
 variable "snapshot_name" {
   description = "The name of the snapshot to use for VM images"
   type        = string
