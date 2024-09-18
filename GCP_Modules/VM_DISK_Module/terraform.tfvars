@@ -1,15 +1,15 @@
-project_id           = "sapspecific"
-region               = "us-east1"
-zone                 = "us-east1-c"
-network_name         = "default"
-subnet_name          = "default"
-service_account_email = "1088675481439-compute@developer.gserviceaccount.com"
-snapshot_name        = "suseosdisk"
+project_id           = "$project"
+region               = "$region"
+zone                 = "$zone1"
+network_name         = "$network"
+subnet_name          = "$subnet"
+service_account_email = "$service"
+snapshot_name        = "$snapshot"
 vms = [
   {
-    name         = "blksaptest"
-    machine_type = "e2-standard-8"
-    zone         = "us-east1-c"
+    name         = "$vmname"
+    machine_type = "$machinetype"
+    zone         = "$zone1"
     disks = []
   }
 ]
