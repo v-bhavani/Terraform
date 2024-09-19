@@ -5,4 +5,3 @@ volume_size       = 10
 disk_type         = "standard"
 
 // Uncomment and set if you want to use an existing snapshot
-// snapshot_id = "snap-xxxxxxxx"
