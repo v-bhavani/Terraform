@@ -8,7 +8,7 @@ terraform {
   backend "gcs" {
     bucket = "terraformbackline"  # Replace with your bucket name
     prefix = "state/blackline.tfstate"
-    impersonate_service_account = "test-auth-symphony@sapspecific.iam.gserviceaccount.com"
+    # impersonate_service_account = "test-auth-symphony@sapspecific.iam.gserviceaccount.com"
   }
 }
 
