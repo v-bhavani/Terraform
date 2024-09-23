@@ -7,3 +7,4 @@ disk_type         = "standard"
 // Uncomment and set if you want to use an existing snapshot
 // Upload commit
 //testing
+//test_terraform_231
