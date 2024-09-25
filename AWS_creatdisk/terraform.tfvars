@@ -6,4 +6,3 @@ disk_type         = "standard"
 
 // Uncomment and set if you want to use an existing snapshot
 //testing
-//test_terraform
