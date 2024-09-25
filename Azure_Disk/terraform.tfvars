@@ -6,5 +6,4 @@ disktype = 4
 project = "Terraform test"
 duration = "required duration"
 owner = "Irfana"
-//test_12345
-//terraform_update_01
+//terraform_update_test
