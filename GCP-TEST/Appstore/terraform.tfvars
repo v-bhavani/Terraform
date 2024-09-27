@@ -6,7 +6,7 @@ network_name = "default"
   subnet_name = "default"
   tags = [
     "web",
-    "production","testing"
+    "production","testinggcp"
   ]
   vms = [
     {
