@@ -8,7 +8,7 @@ snapshot_name        = "susesdisk1"
 vms = [
   {
     name         = "blksaptest"
-    machine_type = "e2-standard-16"
+    machine_type = "e2-standard-32"
     zone         = "us-east1-c"
     disks = []
   }
