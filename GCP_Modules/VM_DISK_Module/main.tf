@@ -8,7 +8,7 @@ provider "google" {
 terraform {
   backend "gcs" {
     bucket = "terraformbackline"  # Replace with your bucket name
-    prefix = "state/blackline.tfstate"
+    prefix = "state/blackline1.tfstate"
    impersonate_service_account = "test-auth-symphony@sapspecific.iam.gserviceaccount.com"
   }
 }
