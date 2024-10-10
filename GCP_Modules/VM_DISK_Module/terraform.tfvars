@@ -7,7 +7,7 @@ service_account_email = "1088675481439-compute@developer.gserviceaccount.com"
 snapshot_name        = "susesdisk1"
 vms = [
   {
-    name         = "blksaptest"
+    name         = "blksaptest-vm1"
     machine_type = "e2-standard-16"
     zone         = "us-east1-c"
     disks = []
