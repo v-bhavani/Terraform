@@ -1,14 +1,14 @@
-project_id           = "innovation-cs-11560"
+project_id           = "sapspecific"
 region               = "us-central1"
 zone                 = "us-central1-a"
 network_name         = "default"
 subnet_name          = "default"
-service_account_email = "symphony-cmd@innovation-cs-11560.iam.gserviceaccount.com"
-snapshot_name        = "sles-15-sp4-sap-snapshot-1"
+service_account_email = "test-auth-symphony@sapspecific.iam.gserviceaccount.com"
+snapshot_name        = "susesdisk1"
 vms = [
   {
     name         = "blksapdrpoc"
-    machine_type = "n2-standard-64"
+    machine_type = "e2-standard-32"
     zone         = "us-central1-a"
     disks = []
   }
