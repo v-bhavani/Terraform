@@ -1,7 +1,7 @@
 provider "google" {
   project = var.project_id
   region  = var.region
-  impersonate_service_account = "symphony-gcp@innovation-cs-11560.iam.gserviceaccount.com"
+  impersonate_service_account = "test-auth-symphony@sapspecific.iam.gserviceaccount.com"
 }
 
 # Configure the backend
@@ -9,7 +9,7 @@ terraform {
   backend "gcs" {
     bucket = "cerp-sap-innovation-dr-backup-bucket"  # Replace with your bucket name
     prefix = "terraformbackline/state/blackline1.tfstate"
-   impersonate_service_account = "symphony-gcp@innovation-cs-11560.iam.gserviceaccount.com"
+   impersonate_service_account = "test-auth-symphony@sapspecific.iam.gserviceaccount.com"
   }
 }
 
