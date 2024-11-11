@@ -7,7 +7,7 @@ provider "google" {
 # Configure the backend
 terraform {
   backend "gcs" {
-    bucket = "cerp-sap-innovation-dr-backup-bucket"  # Replace with your bucket name
+    bucket = "terraformbackline"  # Replace with your bucket name
     prefix = "terraformbackline/state/blackline1.tfstate"
    impersonate_service_account = "test-auth-symphony@sapspecific.iam.gserviceaccount.com"
   }
