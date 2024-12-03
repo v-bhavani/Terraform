@@ -1,15 +1,15 @@
 project_id           = "sapspecific"
-region               = "us-central1"
-zone                 = "us-central1-a"
+region               = "us-east1"
+zone                 = "us-east1-c"
 network_name         = "default"
 subnet_name          = "default"
-service_account_email = "test-auth-symphony@sapspecific.iam.gserviceaccount.com"
+service_account_email = "1088675481439-compute@developer.gserviceaccount.com"
 snapshot_name        = "susesdisk1"
 vms = [
   {
-    name         = "blksapdrpoc"
+    name         = "blksaptest"
     machine_type = "e2-standard-32"
-    zone         = "us-central1-a"
+    zone         = "us-east1-c"
     disks = []
   }
 ]
