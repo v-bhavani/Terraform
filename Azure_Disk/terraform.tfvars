@@ -5,7 +5,7 @@ st_acc_type = "Standard_LRS"
 disktype = 4
 project = "Terraform test"
 duration = "required duration"
-owner = "Irfana"
+owner = "Arvindh"
 //terraform_update_test
 //testinggg
 //regression
