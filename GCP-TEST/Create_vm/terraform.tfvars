@@ -7,7 +7,7 @@ service_account_email = "serviceacforiam@mymigration-322809.iam.gserviceaccount.
 snapshot_name        = "ansiblegloden"
 vms = [
   {
-    name         = "regTest-1"
+    name         = "regtest-1"
     machine_type = "e2-standard-8"
     zone         = "us-central1-a"
     disks = [
@@ -22,7 +22,7 @@ vms = [
     ]
   },
   {
-    name         = "regTest-2"
+    name         = "regtest-2"
     machine_type = "e2-standard-8"
     zone         = "us-central1-a"
     disks = [
