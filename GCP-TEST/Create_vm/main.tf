@@ -2,12 +2,14 @@
 provider "google" {
   project = var.project_id
   region  = var.region
+  impersonate_service_account = "test-auth-symphony@sapspecific.iam.gserviceaccount.com"
 }
 
 terraform {
   backend "gcs" {
     bucket = "terraformbcs"  # Replace with your bucket name
     prefix = "terraform/state/test.tfstate"
+    impersonate_service_account = "test-auth-symphony@sapspecific.iam.gserviceaccount.com"
   }
 }
 
