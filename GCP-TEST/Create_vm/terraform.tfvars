@@ -1,8 +1,8 @@
 project_id           = "sapspecific"
 region               = "us-central1"
 zone                 = "us-central1-a"
-network_name         = "default"
-subnet_name          = "default"
+network_name         = "pay-pal"
+subnet_name          = "pay-subnet"
 service_account_email = "forsymphony@sapspecific.iam.gserviceaccount.com"
 snapshot_name        = "pay-pal-golden-snap-v2"
 vms = [
