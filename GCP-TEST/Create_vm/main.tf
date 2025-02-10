@@ -7,8 +7,8 @@ provider "google" {
 
 terraform {
   backend "gcs" {
-    bucket = "terraformbcs"  # Replace with your bucket name
-    prefix = "terraform/state/test.tfstate"
+    bucket = "testing-paypal"  # Replace with your bucket name
+    prefix = "state/test.tfstate"
     impersonate_service_account = "test-auth-symphony@sapspecific.iam.gserviceaccount.com"
   }
 }
