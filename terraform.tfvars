@@ -1,9 +1,11 @@
-# You can customize these values as per your requirements
-aws_region        = "us-east-1"
-availability_zone = "us-east-1a"
-volume_size       = 20
-disk_type         = "standard"
-
-// Uncomment and set if you want to use an existing snapshot
-//testing terraform
+resourcegroup = "cloud-demo"
+location = "East US"
+diskname = "testdisktf1"
+st_acc_type = "Standard_LRS"
+disktype = 4
+project = "Terraform test"
+duration = "required duration"
+owner = "Arvindh"
+//terraform_update_test
+//testinggg
 //regression test
