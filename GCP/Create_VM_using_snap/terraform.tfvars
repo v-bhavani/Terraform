@@ -1,4 +1,3 @@
-
 project_id         = "mymigration-322809"
 region             = "us-central1"
 zone               = "us-central1-a"
@@ -13,5 +12,3 @@ subnet_name        = "default"  # or your subnet name
 //ssh_key_path       = "~/.ssh/id_rsa.pub"  # path to your SSH public key
 tags               = ["web", "production"]  # example tags
 service_account_email = "serviceacforiam@mymigration-322809.iam.gserviceaccount.com"
-
-
