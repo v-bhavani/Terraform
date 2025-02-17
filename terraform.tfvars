@@ -1,16 +1,9 @@
-project_id           = "sapspecific"
-region               = "us-east1"
-zone                 = "us-east1-c"
-network_name         = "default"
-subnet_name          = "default"
-service_account_email = "1088675481439-compute@developer.gserviceaccount.com"
-snapshot_name        = "susesdisk1"
-vms = [
-  {
-    name         = "blksaptest"
-    machine_type = "e2-standard-32"
-    zone         = "us-east1-c"
-    disks = []
-  }
-]
-tags = ["web", "production"]
+# You can customize these values as per your requirements
+aws_region        = "us-east-1"
+availability_zone = "us-east-1a"
+volume_size       = 10
+disk_type         = "standard"
+
+// Uncomment and set if you want to use an existing snapshot
+//testing terraform
+//regression test
