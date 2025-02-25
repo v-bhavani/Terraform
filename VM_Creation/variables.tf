@@ -37,6 +37,8 @@ variable "service_account_email" {
 }
 
 variable "tags" {
-  description = "Network tags"
+  description = "Tags to assign to the VMs"
   type        = list(string)
+  default     = ["web", "production"] # Set a default value to avoid errors
 }
+
