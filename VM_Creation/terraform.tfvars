@@ -68,5 +68,5 @@ vms = [
     ]
   }
 ]
-tags              = ["web", "production"]
 
+tags = ["web", "production"]
