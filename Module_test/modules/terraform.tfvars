@@ -1,0 +1,9 @@
+aws_region         = "us-east-1"
+ami_id             = "ami-099c0bf223e82eb19"
+instance_type      = "t2.micro"
+subnet_id          = "subnet-1abd9a3b"
+security_group_id  = "sg-050a461e0b4c390fe"
+key_name           = "linuxmgm01"
+volume_size        = 8
+volume_type        = "standard"
+availability_zone  = "us-east-1c"
