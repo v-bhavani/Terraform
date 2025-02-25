@@ -9,7 +9,7 @@ terraform {
 }
 
 module "server1" {
-  source            = "Module_test/ec2-instance"
+  source            = "./modules/ec2-instance"
   ami_id            = var.ami_id
   instance_type     = var.instance_type
   subnet_id         = var.subnet_id
@@ -19,7 +19,7 @@ module "server1" {
 }
 
 module "server1_volumes" {
-  source           = "Module_test/ebs-volume"
+  source           = "./modules/ebs-volume"
   instance_id      = module.server1.instance_id
   volume_size      = var.volume_size
   volume_type      = var.volume_type
@@ -29,7 +29,7 @@ module "server1_volumes" {
 }
 
 module "server2" {
-  source            = "Module_test/ec2-instance"
+  source            = "./modules/ec2-instance"
   ami_id            = var.ami_id
   instance_type     = var.instance_type
   subnet_id         = var.subnet_id
@@ -39,7 +39,7 @@ module "server2" {
 }
 
 module "server2_volumes" {
-  source           = "Module_test/ebs-volume"
+  source           = "./modules/ebs-volume"
   instance_id      = module.server2.instance_id
   volume_size      = var.volume_size
   volume_type      = var.volume_type
