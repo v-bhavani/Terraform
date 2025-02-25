@@ -31,6 +31,11 @@ variable "subnet_name" {
   type        = string
 }
 
+variable "zone" {
+  description = "The zone where the resources will be created"
+  type        = string
+}
+
 variable "service_account_email" {
   description = "The service account email"
   type        = string
