@@ -6,6 +6,4 @@ disktype = 4
 project = "Terraform test"
 duration = "required duration"
 owner = "Arvindha Karthik"
-//terraform_update_test
-//testinggg
-//regression
+//terraform testing
