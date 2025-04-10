@@ -1,0 +1,17 @@
+variable "location" {}
+variable "RG" {}
+variable "disktype" {}
+variable "ipname" {}
+variable "ostype" {}
+variable "diskname" {} 
+variable "snapuri" {}
+variable "osdisksize" {}
+variable "subnetname" {}
+variable "vnetname" {}
+variable "ip" {}
+variable "vm_names" {}
+variable "vm_size" {}
+variable "bootdiagnostic" {}
+variable "project" {}
+variable "duration" {}
+variable "owner" {}

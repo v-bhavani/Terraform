@@ -1,0 +1,9 @@
+variable "sql_admin" {}
+variable "sql_pass" {}
+variable "location" {}
+variable "RG" {}
+variable "sqlservername" {}
+variable "sqlversion" {}
+variable "sqldbname" {}
+variable "sku" {}
+variable "sqlsize" {}
