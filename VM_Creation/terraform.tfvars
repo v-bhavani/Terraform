@@ -70,4 +70,4 @@ vms = [
 ]
 
 tags = ["web", "production"]
-//testing terraform testing
+//test terraform test
