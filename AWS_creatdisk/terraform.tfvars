@@ -4,5 +4,4 @@ availability_zone = "us-east-1a"
 volume_size       = 25
 disk_type         = "standard"
 
-// Uncomment and set if you want to use an existing snapshot
-//test terraform
+//Terraform
