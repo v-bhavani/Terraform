@@ -5,4 +5,4 @@ volume_size       = 15
 disk_type         = "standard"
 
 //test normal
-//clone
+//clone 123
