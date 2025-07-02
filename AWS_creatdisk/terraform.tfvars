@@ -6,4 +6,4 @@ disk_type         = "standard"
 
 //git clone commit 123
 //git pull check 123
-//test
+//testing
