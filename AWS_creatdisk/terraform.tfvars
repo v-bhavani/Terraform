@@ -6,3 +6,4 @@ disk_type         = "standard"
 
 //normal commit
 //test download repo
+//test clone repo
