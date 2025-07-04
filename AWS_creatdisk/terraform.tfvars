@@ -5,6 +5,3 @@ volume_size       = 15
 disk_type         = "standard"
 
 //normal commit
-//test download repo
-//test clone repo1
-//test pull repo1
