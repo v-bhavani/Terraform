@@ -6,3 +6,4 @@ disk_type         = "standard"
 
 //normal commit
 //git clone
+//git pull
