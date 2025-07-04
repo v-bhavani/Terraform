@@ -5,3 +5,4 @@ volume_size       = 15
 disk_type         = "standard"
 
 //normal commit
+//git clone
