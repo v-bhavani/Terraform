@@ -3,7 +3,6 @@ region                = "us-central1"
 zone                 = "us-central1-a"
 network_name         = "default"
 subnet_name          = "default"
-service_account_email = "serviceacforiam@mymigration-322809.iam.gserviceaccount.com"
 snapshot_name        = "ansiblegloden"
 
 vms = [
