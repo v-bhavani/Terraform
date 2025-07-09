@@ -3,12 +3,6 @@ provider "google" {
   region  = var.region
 }
 
-terraform {
-  backend "gcs" {
-    bucket = "gcp-ansible"  # Replace with your bucket name
-    prefix = "terraform/state/vm-common.tfstate"
-  }
-}
 
 resource "google_compute_image" "snapshot_image" {
   for_each       = { for vm in var.vms : vm.name => vm }
