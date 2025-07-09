@@ -41,11 +41,6 @@ variable "zone" {
   type        = string
 }
 
-variable "service_account_email" {
-  description = "The service account email to attach to the VMs"
-  type        = string
-}
-
 variable "tags" {
   description = "Tags to assign to the VMs"
   type        = list(string)
