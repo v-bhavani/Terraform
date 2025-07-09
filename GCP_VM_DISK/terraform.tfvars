@@ -1,14 +1,13 @@
-project_id           = "mymigration-322809"
+project_id           = "sapspecific"
 region               = "us-central1"
 zone                 = "us-central1-a"
 network_name         = "default"
 subnet_name          = "default"
-service_account_email = "serviceacforiam@mymigration-322809.iam.gserviceaccount.com"
-snapshot_name        = "ansiblegloden"
+snapshot_name        = "susesdisk1"
 
 vms = [
   {
-    name         = "vm1-saphana"
+    name         = "vm1"
     machine_type = "e2-standard-8"
     zone         = "us-central1-a"
     disks = [
@@ -23,7 +22,7 @@ vms = [
     ]
   },
   {
-    name         = "vm2-saphana"
+    name         = "vm2"
     machine_type = "e2-standard-16"
     zone         = "us-central1-a"
     disks = [
