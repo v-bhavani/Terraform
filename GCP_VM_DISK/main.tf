@@ -5,7 +5,7 @@ provider "google" {
 
 terraform {
   backend "gcs" {
-    bucket = "terraformbcs"  # Replace with your bucket name
+    bucket = "gcp-ansible"  # Replace with your bucket name
     prefix = "terraform/state/vm-common.tfstate"
   }
 }
@@ -68,10 +68,6 @@ resource "google_compute_instance" "vm_instance" {
     }
   }
 
-  service_account {
-    email  = var.service_account_email
-    scopes = ["https://www.googleapis.com/auth/cloud-platform"]
-  }
 
   tags = var.tags
 
