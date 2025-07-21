@@ -25,5 +25,3 @@ variable "owner" {
   description = "name of resource"
   type        = string
 }
-
-#latest-issue
