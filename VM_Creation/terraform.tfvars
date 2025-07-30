@@ -70,4 +70,3 @@ vms = [
 
 tags = ["web", "production"]
 //terraform
-//second
