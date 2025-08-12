@@ -4,7 +4,7 @@ provider "azurerm" {
 terraform {
   backend "azurerm"{
     resource_group_name = "cloud-demo"
-    storage_account_name = "evitest"
+    storage_account_name = "ansibletest01"
     container_name = "tftest"
     key = "terraformtest1.tfstate"
  }
@@ -231,4 +231,5 @@ resource "azurerm_site_recovery_replication_recovery_plan" "example" {
   recovery_group {
     type = "Shutdown"
   }
+
 }
