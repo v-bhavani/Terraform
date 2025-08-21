@@ -5,5 +5,3 @@ volume_size       = 15
 disk_type         = "standard"
 
 //first commit
-//second commit
-//third commit
