@@ -6,5 +6,4 @@ disktype = 4
 project = "Terraform test"
 duration = "required duration"
 owner = "Arvindha"
-
-//firstcommit
+tfstate = tftest.tfstate
