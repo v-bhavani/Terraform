@@ -25,3 +25,7 @@ variable "owner" {
   description = "name of resource"
   type        = string
 }
+variable "tfstate" {
+  type        = string
+}
+
