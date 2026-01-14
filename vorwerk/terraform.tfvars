@@ -16,14 +16,16 @@ project      = "regression"
 duration     = "one-day"
 owner        = "Irfana"
 
-sql_admin    = "$var.sql_admin"
-sql_pass     = "$var.sql_pass"
-sqlsize      = $var.sqlsize
-sqlservername = "$var.sqlservername"
-sqlversion   = "$var.sqlversion"
-sku         = "$var.sku"
-sqldbname1  = "$var.sqldbname1"
-sqldbname2  = "$var.sqldbname2"
-collation   = "$var.collation"
-subnet_id   = "$var.subnet_id"
+sql_admin      = "sqladminuser"
+sql_pass       = "P@ssw0rd!123"      # Use a strong password
+sqlsize        = 20                 # Size in GB
+sqlservername  = "prod-sql-01"
+sqlversion     = "2019"             # e.g., 2017, 2019, 2022
+sku            = "Standard"         # Basic / Standard / Premium
+sqldbname1     = "AppDB"
+sqldbname2     = "ReportingDB"
+collation      = "SQL_Latin1_General_CP1_CI_AS"
+subnet_id      = "/subscriptions/bf18f464-1469-4216-834f-9c6694dbfe26/resourceGroups/cloud-demo/providers/Microsoft.Network/virtualNetworks/asr-vm-vnet/subnets/default"
+
+
 
