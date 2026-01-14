@@ -8,8 +8,8 @@ ipname       = "vmipreg"
 ostype       = "linux"
 subnetname   = "default"
 vnetname     = "asr-vm-vnet"
-ip           = "$var.ip"
-vm_names     = "regvm1"
+ip           = "10.2.0.90"
+vm_names     = "regvmtf"
 vm_size      = "Standard_D2as_v5"
 bootdiagnostic = "https://testcloud001423.blob.core.windows.net/"
 project      = "regression"
@@ -17,15 +17,16 @@ duration     = "one-day"
 owner        = "Irfana"
 
 sql_admin      = "sqladminuser"
-sql_pass       = "P@ssw0rd!123"      # Use a strong password
-sqlsize        = 20                 # Size in GB
+sql_pass       = "P@ssw0rd!123"     
+sqlsize        = 20               
 sqlservername  = "prod-sql-01"
-sqlversion     = "2019"             # e.g., 2017, 2019, 2022
-sku            = "Standard"         # Basic / Standard / Premium
+sqlversion     = "12.0"           
+sku            = "GP_S_Gen5_1"         
 sqldbname1     = "AppDB"
 sqldbname2     = "ReportingDB"
 collation      = "SQL_Latin1_General_CP1_CI_AS"
 subnet_id      = "/subscriptions/bf18f464-1469-4216-834f-9c6694dbfe26/resourceGroups/cloud-demo/providers/Microsoft.Network/virtualNetworks/asr-vm-vnet/subnets/default"
+
 
 
 
