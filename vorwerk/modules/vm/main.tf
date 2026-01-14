@@ -57,9 +57,9 @@ resource "azurerm_virtual_machine" "myterraformvm" {
 
   storage_os_disk {
     name            = azurerm_managed_disk.copy.name
-    os_type         = var.ostype         # e.g., "Windows" or "Linux"
+    os_type         = Linux         # e.g., "Windows" or "Linux"
     managed_disk_id = azurerm_managed_disk.copy.id
-    disk_size_gb    = var.osdisksize
+    disk_size_gb    = 32
     create_option   = "Attach"
   }
 
@@ -89,3 +89,4 @@ resource "azurerm_virtual_machine" "myterraformvm" {
     Owner    = var.owner
   }
 }
+
